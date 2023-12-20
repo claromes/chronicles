@@ -5,7 +5,7 @@ struct Player
    std::string name;
    int health;
    int xp;
-   std::string inventory[10];
+   std::string inventory[6];
    int inventoryCount = 0;
 };
 
@@ -70,7 +70,7 @@ int main()
                     std::cout << "You chose to search for hidden treasures. You find a chest filled with enchanted artifacts." << std::endl;
                     std::cout << "You find an artifact!\n" << std::endl;
 
-                    addInventory(player, "Enchanted Artifact");
+                    addInventory(player, "Enchanted Sickle");
                 } else
                 {
                     std::cout << "Invalid choice within the Enchanted Forest. " << player.name << " stands still and ponders." << std::endl;
