@@ -2,4 +2,4 @@ Explore the Dragonscape Chronicles: text-based adventure game. Written to learn 
 
 "... stands still and ponders."
 
-$ gcc -o adventure adventure.cpp -lstdc++
+$ gcc -o chronicles chronicles.cpp -lstdc++

@@ -9,6 +9,20 @@ struct Player
    int inventoryCount = 0;
 };
 
+void addInventory(Player &player, std::string itemName)
+{
+    player.inventory[player.inventoryCount] = itemName;
+    player.inventoryCount++;
+
+    std::cout << "Inventory:" << std::endl;
+    for (int i = 0; i < player.inventoryCount; i++)
+    {
+        if (!player.inventory[i].empty())
+        {
+            std::cout << "- " << player.inventory[i] << std::endl;
+        }
+    }
+}
 
 int main()
 {
@@ -50,33 +64,13 @@ int main()
                     std::cout << "You chose to encounter magical creatures. You befriend a wise sprite who guides you deeper into the forest." << std::endl;
                     std::cout << "You find an magic wood!\n" << std::endl;
 
-                    player.inventory[player.inventoryCount] = "Magic Wood";
-                    player.inventoryCount++;
-
-                    std::cout << "Inventory:" << std::endl;
-                    for (int i = 0; i < player.inventoryCount; i++)
-                    {
-                        if (!player.inventory[i].empty())
-                        {
-                            std::cout << "- " << player.inventory[i] << std::endl;
-                        }
-                    }
+                    addInventory(player, "Magic Wood");
                 } else if (nestedChoice == 2)
                 {
                     std::cout << "You chose to search for hidden treasures. You find a chest filled with enchanted artifacts." << std::endl;
                     std::cout << "You find an artifact!\n" << std::endl;
 
-                    player.inventory[player.inventoryCount] = "Enchanted Artifact";
-                    player.inventoryCount++;
-
-                    std::cout << "Inventory:" << std::endl;
-                    for (int i = 0; i < player.inventoryCount; i++)
-                    {
-                        if (!player.inventory[i].empty())
-                        {
-                            std::cout << "- " << player.inventory[i] << std::endl;
-                        }
-                    }
+                    addInventory(player, "Enchanted Artifact");
                 } else
                 {
                     std::cout << "Invalid choice within the Enchanted Forest. " << player.name << " stands still and ponders." << std::endl;
