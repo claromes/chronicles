@@ -5,6 +5,8 @@ struct Player
    std::string name;
    int health;
    int xp;
+   std::string inventory[10];
+   int inventoryCount = 0;
 };
 
 
@@ -18,7 +20,7 @@ int main()
     std::cout << "Tell me your best adventurer name: ";
     std::cin >> player.name;
 
-    std::cout << "Hail, " << player.name << "!" << std::endl;
+    std::cout << "\nHail, " << player.name << "!" << std::endl;
 
     int choice;
     int nestedChoice;
@@ -26,7 +28,7 @@ int main()
 
     while(exploring)
     {
-        std::cout << "Where will " << player.name << " go?" << std::endl;
+        std::cout << "\nWhere will " << player.name << " go?" << std::endl;
         std::cout << "1. Enchanted Forest" << std::endl;
         std::cout << "2. Crystal Caverns" << std::endl;
         std::cout << "3. Mystic Peaks" << std::endl;
@@ -46,9 +48,35 @@ int main()
                 if (nestedChoice == 1)
                 {
                     std::cout << "You chose to encounter magical creatures. You befriend a wise sprite who guides you deeper into the forest." << std::endl;
+                    std::cout << "You find an magic wood!\n" << std::endl;
+
+                    player.inventory[player.inventoryCount] = "Magic Wood";
+                    player.inventoryCount++;
+
+                    std::cout << "Inventory:" << std::endl;
+                    for (int i = 0; i < player.inventoryCount; i++)
+                    {
+                        if (!player.inventory[i].empty())
+                        {
+                            std::cout << "- " << player.inventory[i] << std::endl;
+                        }
+                    }
                 } else if (nestedChoice == 2)
                 {
                     std::cout << "You chose to search for hidden treasures. You find a chest filled with enchanted artifacts." << std::endl;
+                    std::cout << "You find an artifact!\n" << std::endl;
+
+                    player.inventory[player.inventoryCount] = "Enchanted Artifact";
+                    player.inventoryCount++;
+
+                    std::cout << "Inventory:" << std::endl;
+                    for (int i = 0; i < player.inventoryCount; i++)
+                    {
+                        if (!player.inventory[i].empty())
+                        {
+                            std::cout << "- " << player.inventory[i] << std::endl;
+                        }
+                    }
                 } else
                 {
                     std::cout << "Invalid choice within the Enchanted Forest. " << player.name << " stands still and ponders." << std::endl;
